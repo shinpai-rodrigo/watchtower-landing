@@ -1793,3 +1793,124 @@ body {
   .integrations-grid { grid-template-columns: repeat(2, 1fr); }
   .cta-trust { flex-direction: column; gap: 0.75rem; }
 }
+
+/* ===== CONTATO ===== */
+.contato-section {
+  position: relative;
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contato-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contato-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  border-radius: inherit;
+}
+
+.contato-card:hover {
+  border-color: var(--border-hover);
+  background: var(--surface-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(107, 43, 255, 0.18);
+}
+
+.contato-card:hover::before {
+  opacity: 0.04;
+}
+
+.contato-card--whatsapp:hover {
+  border-color: rgba(37, 211, 102, 0.35);
+  box-shadow: 0 12px 40px rgba(37, 211, 102, 0.12);
+}
+
+.contato-card-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 12px;
+  background: rgba(107, 43, 255, 0.12);
+  border: 1px solid rgba(107, 43, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  position: relative;
+  z-index: 1;
+}
+
+.contato-card--whatsapp .contato-card-icon {
+  background: rgba(37, 211, 102, 0.1);
+  border-color: rgba(37, 211, 102, 0.2);
+  color: #25D366;
+}
+
+.contato-card-body {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.contato-card-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 0.2rem;
+}
+
+.contato-card-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.contato-card-arrow {
+  color: var(--text-secondary);
+  transition: transform 0.25s ease, color 0.25s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.contato-card:hover .contato-card-arrow {
+  transform: translateX(4px);
+  color: var(--accent);
+}
+
+.contato-card--whatsapp:hover .contato-card-arrow {
+  color: #25D366;
+}
+
+@media (max-width: 768px) {
+  .contato-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+}
