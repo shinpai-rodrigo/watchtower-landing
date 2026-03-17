@@ -47,7 +47,7 @@ export default function Navbar() {
         <a
           href="#"
           className="flex items-center gap-2.5 group"
-          aria-label="Matheus AI — página inicial"
+          aria-label="WatchTower.AI — página inicial"
         >
           <div className="relative w-9 h-9 flex items-center justify-center">
             <div className="absolute inset-0 rounded-xl bg-brand-gradient opacity-20 group-hover:opacity-40 transition-opacity duration-300" />
@@ -55,8 +55,8 @@ export default function Navbar() {
             <Radio className="w-5 h-5 text-primary relative z-10" aria-hidden="true" />
           </div>
           <span className="font-bold text-lg tracking-tight">
-            <span className="text-white">Matheus</span>
-            <span className="gradient-text"> AI</span>
+            <span className="text-white">WatchTower</span>
+            <span className="gradient-text">.AI</span>
           </span>
         </a>
 

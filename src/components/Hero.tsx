@@ -215,7 +215,7 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center pt-16 overflow-hidden"
-      aria-label="Hero — Matheus AI"
+      aria-label="Hero — WatchTower.AI"
     >
       {/* Background layers */}
       <div className="absolute inset-0 grid-bg opacity-60" aria-hidden="true" />
@@ -294,7 +294,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 href="#como-funciona"
                 className="btn-secondary group text-base px-7 py-3.5"
-                aria-label="Ver como funciona o Matheus AI"
+                aria-label="Ver como funciona o WatchTower.AI"
               >
                 <Play className="w-4 h-4" aria-hidden="true" />
                 Ver como funciona

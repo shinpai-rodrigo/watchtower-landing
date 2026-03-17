@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Matheus AI — Monitoramento inteligente de métricas via WhatsApp. Conecte suas ferramentas, faça perguntas e receba alertas com a ClaudIA." />
-  <title>Matheus AI — Your business metrics. Delivered on WhatsApp.</title>
+  <meta name="description" content="WatchTower.AI — Monitoramento inteligente de métricas via WhatsApp. Conecte suas ferramentas, faça perguntas e receba alertas com a ClaudIA." />
+  <title>WatchTower.AI — Your business metrics. Delivered on WhatsApp.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -17,11 +17,11 @@
   <!-- ===== NAVBAR ===== -->
   <header id="navbar" class="navbar" role="banner">
     <nav class="nav-container" aria-label="Navegação principal">
-      <a href="#" class="nav-logo" aria-label="Matheus AI — página inicial">
+      <a href="#" class="nav-logo" aria-label="WatchTower.AI — página inicial">
         <div class="nav-logo-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
         </div>
-        <span class="nav-logo-text"><span class="text-white">Matheus</span><span class="gradient-text"> AI</span></span>
+        <span class="nav-logo-text"><span class="text-white">WatchTower</span><span class="gradient-text">.AI</span></span>
       </a>
 
       <ul class="nav-links" role="list">
@@ -55,7 +55,7 @@
   <main>
 
     <!-- ===== HERO ===== -->
-    <section id="hero" class="hero section-padding" aria-label="Hero — Matheus AI">
+    <section id="hero" class="hero section-padding" aria-label="Hero — WatchTower.AI">
       <div class="grid-bg" aria-hidden="true"></div>
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="orb orb-left animate-float" aria-hidden="true"></div>
@@ -339,7 +339,20 @@
 
             <div class="claudia-chat-window" role="region" aria-label="Janela de chat com a ClaudIA">
 
-              <!-- Title bar -->
+              <!-- Status bar -->
+              <div class="claudia-status-bar" aria-hidden="true">
+                <span class="claudia-status-time">9:41</span>
+                <div class="claudia-status-icons">
+                  <!-- Signal bars -->
+                  <svg class="claudia-status-icon" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="16" width="3" height="6" rx="1"/><rect x="7" y="12" width="3" height="10" rx="1"/><rect x="12" y="8" width="3" height="14" rx="1"/><rect x="17" y="4" width="3" height="18" rx="1" opacity="0.4"/></svg>
+                  <!-- WiFi -->
+                  <svg class="claudia-status-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg>
+                  <!-- Battery -->
+                  <svg class="claudia-status-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2" stroke-width="2.5"/><rect x="4" y="9" width="12" height="6" rx="1" fill="currentColor" stroke="none"/></svg>
+                </div>
+              </div>
+
+              <!-- Chat header -->
               <div class="claudia-chat-titlebar">
                 <div class="claudia-avatar-lg" aria-hidden="true">C</div>
                 <div class="claudia-chat-titlebar-info">
@@ -361,12 +374,15 @@
 
               <!-- Input bar -->
               <div class="claudia-chat-inputbar">
+                <div class="claudia-input-mic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                </div>
                 <div class="claudia-chat-inputfield" aria-label="Campo de texto">
                   <span class="claudia-input-text" id="claudia-input-text"></span>
                   <span class="claudia-input-cursor" id="claudia-input-cursor" aria-hidden="true"></span>
                 </div>
                 <div class="claudia-chat-sendbtn" id="claudia-send-btn" aria-hidden="true">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                 </div>
               </div>
 
@@ -388,7 +404,7 @@
           <div class="wa-phone-wrap reveal-stagger" aria-label="Demonstração de alertas via WhatsApp">
             <div class="wa-phone-glow" aria-hidden="true"></div>
 
-            <div class="wa-phone" role="region" aria-label="Conversa WhatsApp com Matheus AI">
+            <div class="wa-phone" role="region" aria-label="Conversa WhatsApp com WatchTower.AI">
 
               <!-- Status bar -->
               <div class="wa-status-bar" aria-hidden="true">
@@ -409,11 +425,11 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
                 </div>
                 <div class="wa-avatar" aria-hidden="true">
-                  🤖
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
                   <span class="wa-avatar-online"></span>
                 </div>
                 <div class="wa-contact-info">
-                  <div class="wa-contact-name">Matheus AI 🤖</div>
+                  <div class="wa-contact-name">WatchTower.AI</div>
                   <div class="wa-contact-status">online</div>
                 </div>
                 <div class="wa-header-actions" aria-hidden="true">
@@ -423,7 +439,7 @@
               </div>
 
               <!-- Chat messages body -->
-              <div class="wa-chat-body" role="log" aria-label="Mensagens de alerta do Matheus AI" aria-live="polite">
+              <div class="wa-chat-body" role="log" aria-label="Mensagens de alerta do WatchTower.AI" aria-live="polite">
                 <div class="wa-date-chip" aria-hidden="true">Hoje</div>
               </div>
 
@@ -608,7 +624,7 @@
             <h2 id="security-title" class="section-title text-left">
               Segurança nível <span class="gradient-text">enterprise.</span>
             </h2>
-            <p class="section-subtitle text-left">Seus dados de negócio são preciosos. Construímos cada camada da Matheus AI com segurança como prioridade.</p>
+            <p class="section-subtitle text-left">Seus dados de negócio são preciosos. Construímos cada camada do WatchTower.AI com segurança como prioridade.</p>
 
             <div class="security-features">
               <div class="security-feature">
@@ -668,7 +684,7 @@
           <h2 id="pricing-title" class="section-title">
             Simples, <span class="gradient-text">sem surpresas.</span>
           </h2>
-          <p class="section-subtitle">Planos em breve. Entre na lista de espera e seja um dos primeiros a usar o Matheus AI.</p>
+          <p class="section-subtitle">Planos em breve. Entre na lista de espera e seja um dos primeiros a usar o WatchTower.AI.</p>
         </div>
 
         <div class="pricing-grid">
@@ -837,11 +853,11 @@
       <div class="footer-grid">
         <!-- Brand -->
         <div class="footer-brand">
-          <a href="#" class="nav-logo footer-logo" aria-label="Matheus AI — voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+          <a href="#" class="nav-logo footer-logo" aria-label="WatchTower.AI — voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
             <div class="nav-logo-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
             </div>
-            <span class="nav-logo-text"><span class="text-white">Matheus</span><span class="gradient-text"> AI</span></span>
+            <span class="nav-logo-text"><span class="text-white">WatchTower</span><span class="gradient-text">.AI</span></span>
           </a>
           <p class="footer-tagline">Suas métricas de negócio. Entregues no WhatsApp. Monitoramento inteligente com ClaudIA.</p>
           <div class="footer-social">
@@ -854,13 +870,13 @@
             <a href="#" class="social-link" aria-label="Instagram">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
-            <a href="mailto:contato@matheus-ai.ai" class="social-link" aria-label="E-mail">
+            <a href="mailto:contato@watchtower.ai" class="social-link" aria-label="E-mail">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </a>
           </div>
-          <a href="mailto:contato@matheus-ai.ai" class="footer-email">
+          <a href="mailto:contato@watchtower.ai" class="footer-email">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            contato@matheus-ai.ai
+            contato@watchtower.ai
           </a>
         </div>
 
@@ -900,7 +916,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2026 Matheus AI. Todos os direitos reservados.</p>
+        <p class="footer-copyright">© 2026 WatchTower.AI. Todos os direitos reservados.</p>
         <div class="footer-status">
           <span class="status-dot" aria-hidden="true"></span>
           <span>Todos os sistemas operacionais</span>

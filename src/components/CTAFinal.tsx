@@ -138,7 +138,7 @@ export default function CTAFinal() {
                 whileTap={{ scale: 0.95 }}
                 href="#planos"
                 className="btn-primary text-base px-8 py-4 group"
-                aria-label="Começar a usar o Matheus AI agora"
+                aria-label="Começar a usar o WatchTower.AI agora"
               >
                 Começar agora
                 <ArrowRight

@@ -1,5 +1,5 @@
 /* ===================================================
-   Matheus AI — Main JavaScript
+   WatchTower.AI — Main JavaScript
    =================================================== */
 
 // ===== NAVBAR SCROLL =====
@@ -110,7 +110,6 @@
     { type: 'bot', text: 'Você teve 4.392 installs ontem. 📈 Crescimento de 12% vs semana passada.' },
     { type: 'user', text: 'E o meu CPA hoje?' },
     { type: 'bot', text: 'R$ 18,40. Abaixo da meta de R$ 20. ✅ Tudo sob controle!' },
-    { type: 'alert', text: '⚠️ Alerta: Seu CPA ultrapassou R$ 20! Agora em R$ 22,15. Atenção necessária.' },
   ];
 
   // Timing: [show_at_ms, typing_starts_ms_before]
@@ -119,7 +118,6 @@
     { show: 2200, typing: 800 },
     { show: 4000, typing: false },
     { show: 5400, typing: 800 },
-    { show: 7200, typing: 800 },
   ];
 
   let timers = [];
@@ -227,7 +225,7 @@
       cycle++;
       timers = [];
       startCycle();
-    }, 12000);
+    }, 10000);
     timers.push(restartTimer);
   }
 

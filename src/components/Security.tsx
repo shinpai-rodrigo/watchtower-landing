@@ -235,8 +235,8 @@ export default function Security() {
                 <span className="gradient-text">enterprise.</span>
               </h2>
               <p className="text-text-secondary text-base leading-relaxed">
-                Seus dados de negócio são preciosos. Construímos cada camada da
-                Matheus AI com segurança como prioridade, não como afterthought.
+                Seus dados de negócio são preciosos. Construímos cada camada do
+                WatchTower.AI com segurança como prioridade, não como afterthought.
               </p>
             </motion.div>
 

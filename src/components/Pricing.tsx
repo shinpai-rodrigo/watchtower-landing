@@ -322,7 +322,7 @@ export default function Pricing() {
           </h2>
           <p className="text-text-secondary text-base lg:text-lg max-w-2xl mx-auto">
             Planos em breve. Entre na lista de espera e seja um dos primeiros a
-            usar o Matheus AI.
+            usar o WatchTower.AI.
           </p>
         </motion.div>
 

@@ -1,17 +1,18 @@
 /* ===================================================
-   Matheus AI — Alertas: WhatsApp Chat Animation
+   WatchTower.AI — Alertas: WhatsApp Chat Animation
+   Premium WhatsApp Pro Design
    =================================================== */
 
 (function initAlertsChatDemo() {
 
   /* ---- CONFIG ---- */
-  var TYPING_DURATION   = 1500;   /* ms typing indicator visible */
-  var MSG_PAUSE         = 2500;   /* ms gap between messages */
-  var RESTART_PAUSE     = 3000;   /* ms after last message before loop */
+  var TYPING_DURATION = 1500;
+  var MSG_PAUSE       = 2500;
+  var RESTART_PAUSE   = 3500;
 
-  /* ---- TIMESTAMPS (advances as animation plays) ---- */
+  /* ---- TIMESTAMPS ---- */
   var BASE_HOUR   = 14;
-  var BASE_MINUTE = 31;
+  var BASE_MINUTE = 30;
 
   function nextTimestamp() {
     BASE_MINUTE += 1;
@@ -23,45 +24,50 @@
 
   function resetTimestamps() {
     BASE_HOUR   = 14;
-    BASE_MINUTE = 31;
+    BASE_MINUTE = 30;
   }
 
-  /* ---- MESSAGES ---- */
+  /* ---- MESSAGES ----
+     type: 'bot' = WatchTower (left bubble)
+     type: 'user' = user reply (right bubble)
+  ---- */
   var MESSAGES = [
     {
+      type: 'bot',
       lines: [
-        { bold: false, text: '\u26a0\ufe0f ' },
-        { bold: true,  text: 'CPA Ultrapassou a Meta!' },
-        { bold: false, text: '\n\nSeu CPA chegou em ' },
+        { bold: false, text: '\uD83D\uDEA8 ' },
+        { bold: true,  text: 'Alerta Cr\u00edtico' },
+        { bold: false, text: ' \u2014 Seu CPA ultrapassou R$ 20!\nAgora em ' },
         { bold: true,  text: 'R$ 22,15' },
-        { bold: false, text: ' \u2014 acima do limite de R$ 20,00.\n\n\ud83d\udcc9 Campanha: iOS \u2014 Black Friday\n\ud83d\udd50 Detectado agora' }
+        { bold: false, text: '. A\u00e7\u00e3o necess\u00e1ria.' }
       ]
     },
     {
+      type: 'bot',
       lines: [
-        { bold: true,  text: '\ud83d\udcca Resumo r\u00e1pido:' },
-        { bold: false, text: '\n\n\u2022 ROAS atual: 2.8x (meta: 3x)\n\u2022 Impress\u00f5es: 45.2k\n\u2022 Cliques: 1.847\n\nDeseja pausar a campanha?' }
+        { bold: false, text: '\uD83D\uDCCA ROAS caiu para ' },
+        { bold: true,  text: '1.8x' },
+        { bold: false, text: ' (meta: 3x).\nCampanha: Black Friday 2025.\n\n\u2022 Impress\u00f5es: 45.2k\n\u2022 Cliques: 1.847\n\u2022 Invest.: R$ 3.200' }
       ]
     },
     {
+      type: 'user',
       lines: [
-        { bold: false, text: '\u2705 ' },
-        { bold: true,  text: 'A\u00e7\u00e3o registrada!' },
-        { bold: false, text: '\n\nCampanha iOS pausada com sucesso.\n\nMonitorando as demais campanhas... \ud83d\udc40' }
+        { bold: false, text: 'Como resolvo isso?' }
       ]
     },
     {
+      type: 'bot',
       lines: [
-        { bold: false, text: '\ud83c\udfaf ' },
-        { bold: true,  text: 'Meta atingida!' },
-        { bold: false, text: '\n\nCampanha Android bateu 500 installs hoje!\n\nParab\u00e9ns! \ud83c\udf89' }
+        { bold: true, text: '\uD83D\uDCA1 Sugest\u00f5es imediatas:' },
+        { bold: false, text: '\n\n1. Pause criativos com CTR < 1%\n2. Reduza lance em 15%\n3. Exclua audi\u00eancias com CPA > R$ 25\n\nDeseja que eu aplique essas a\u00e7\u00f5es?' }
       ]
     }
   ];
 
   /* ---- STATE ---- */
-  var timers  = [];
-  var started = false;
+  var timers   = [];
+  var started  = false;
   var chatBody = null;
 
   /* ---- HELPERS ---- */
@@ -76,8 +82,19 @@
     timers = [];
   }
 
-  /* ---- BUILD ELEMENTS ---- */
+  /* ---- CHECKMARK SVG ---- */
+  function buildCheckSvg() {
+    var check = document.createElement('span');
+    check.className = 'wa-bubble-check';
+    check.setAttribute('aria-hidden', 'true');
+    check.innerHTML =
+      '<svg viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+        '<path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-.358-.325a.319.319 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.033l6.272-8.048a.366.366 0 0 0-.064-.51zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.879a.32.32 0 0 1-.484.033L1.891 7.769a.366.366 0 0 0-.516.031l-.423.48a.418.418 0 0 0 .025.546l3.098 2.781a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.064-.51z" fill="currentColor"/>' +
+      '</svg>';
+    return check;
+  }
 
+  /* ---- BUILD DATE CHIP ---- */
   function buildDateChip() {
     var chip = document.createElement('div');
     chip.className = 'wa-date-chip';
@@ -85,6 +102,7 @@
     return chip;
   }
 
+  /* ---- BUILD TYPING INDICATOR ---- */
   function buildTypingIndicator() {
     var wrap = document.createElement('div');
     wrap.className = 'wa-typing';
@@ -102,14 +120,17 @@
     return wrap;
   }
 
+  /* ---- BUILD MESSAGE ---- */
   function buildMessage(msgData, timestamp) {
+    var isUser = msgData.type === 'user';
+
     var wrap = document.createElement('div');
-    wrap.className = 'wa-msg';
+    wrap.className = isUser ? 'wa-msg wa-msg-user' : 'wa-msg';
 
     var bubble = document.createElement('div');
-    bubble.className = 'wa-bubble';
+    bubble.className = isUser ? 'wa-bubble-user' : 'wa-bubble';
 
-    /* Build text with bold spans */
+    /* Text content */
     var textEl = document.createElement('div');
     textEl.className = 'wa-bubble-text';
 
@@ -131,16 +152,10 @@
     timeEl.className = 'wa-bubble-time';
     timeEl.textContent = timestamp;
 
-    var check = document.createElement('span');
-    check.className = 'wa-bubble-check';
-    check.setAttribute('aria-hidden', 'true');
-    check.innerHTML =
-      '<svg viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-        '<path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-.358-.325a.319.319 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.033l6.272-8.048a.366.366 0 0 0-.064-.51zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.879a.32.32 0 0 1-.484.033L1.891 7.769a.366.366 0 0 0-.516.031l-.423.48a.418.418 0 0 0 .025.546l3.098 2.781a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.064-.51z" fill="currentColor"/>' +
-      '</svg>';
-
     meta.appendChild(timeEl);
-    meta.appendChild(check);
+    if (isUser) {
+      meta.appendChild(buildCheckSvg());
+    }
 
     bubble.appendChild(textEl);
     bubble.appendChild(meta);
@@ -149,57 +164,68 @@
     return wrap;
   }
 
-  /* ---- SCROLL to bottom ---- */
+  /* ---- SCROLL ---- */
   function scrollToBottom() {
     if (!chatBody) return;
     chatBody.scrollTop = chatBody.scrollHeight;
   }
 
-  /* ---- SHOW one message in sequence ---- */
+  /* ---- SHOW ONE MESSAGE ---- */
   function showMessage(index, onDone) {
     var msgData   = MESSAGES[index];
     var timestamp = nextTimestamp();
+    var isUser    = msgData.type === 'user';
 
-    /* 1. Show typing indicator */
-    var typingEl = buildTypingIndicator();
-    chatBody.appendChild(typingEl);
-    scrollToBottom();
-
-    t(function() {
-      typingEl.classList.add('wa-typing-visible');
-    }, 16); /* next frame */
-
-    /* 2. After typing duration — swap typing for message bubble */
-    t(function() {
-      /* Fade out typing */
-      typingEl.classList.remove('wa-typing-visible');
+    if (isUser) {
+      /* User messages appear directly — no typing indicator */
+      var msgEl = buildMessage(msgData, timestamp);
+      chatBody.appendChild(msgEl);
+      scrollToBottom();
 
       t(function() {
-        if (typingEl.parentNode) typingEl.parentNode.removeChild(typingEl);
-
-        /* Append message */
-        var msgEl = buildMessage(msgData, timestamp);
-        chatBody.appendChild(msgEl);
+        msgEl.classList.add('wa-msg-visible');
         scrollToBottom();
+        if (onDone) t(onDone, MSG_PAUSE);
+      }, 16);
+
+    } else {
+      /* Bot messages show typing indicator first */
+      var typingEl = buildTypingIndicator();
+      chatBody.appendChild(typingEl);
+      scrollToBottom();
+
+      t(function() {
+        typingEl.classList.add('wa-typing-visible');
+      }, 16);
+
+      t(function() {
+        typingEl.classList.remove('wa-typing-visible');
 
         t(function() {
-          msgEl.classList.add('wa-msg-visible');
+          if (typingEl.parentNode) typingEl.parentNode.removeChild(typingEl);
+
+          var msgEl = buildMessage(msgData, timestamp);
+          chatBody.appendChild(msgEl);
           scrollToBottom();
-        }, 16);
 
-        if (onDone) t(onDone, MSG_PAUSE);
-      }, 250);
+          t(function() {
+            msgEl.classList.add('wa-msg-visible');
+            scrollToBottom();
+          }, 16);
 
-    }, TYPING_DURATION);
+          if (onDone) t(onDone, MSG_PAUSE);
+        }, 250);
+
+      }, TYPING_DURATION);
+    }
   }
 
-  /* ---- RUN full sequence ---- */
+  /* ---- RUN SEQUENCE ---- */
   function runSequence() {
     var index = 0;
 
     function next() {
       if (index >= MESSAGES.length) {
-        /* All messages shown — wait then restart */
         t(function() {
           restart();
         }, RESTART_PAUSE);
@@ -213,14 +239,13 @@
     next();
   }
 
-  /* ---- CLEAR chat and restart ---- */
+  /* ---- RESTART ---- */
   function restart() {
     clearTimers();
     resetTimestamps();
 
     if (!chatBody) return;
 
-    /* Fade all messages out */
     var msgs = chatBody.querySelectorAll('.wa-msg, .wa-typing');
     msgs.forEach(function(el) {
       el.style.transition = 'opacity 0.4s ease';
@@ -228,13 +253,11 @@
     });
 
     t(function() {
-      /* Keep only date chip, remove messages */
       var toRemove = chatBody.querySelectorAll('.wa-msg, .wa-typing');
       toRemove.forEach(function(el) {
         if (el.parentNode) el.parentNode.removeChild(el);
       });
 
-      /* Small breath pause before re-starting */
       t(function() {
         runSequence();
       }, 600);
@@ -246,7 +269,6 @@
     chatBody = document.querySelector('.wa-chat-body');
     if (!chatBody) return;
 
-    /* Small initial delay so user sees the empty chat first */
     t(function() {
       runSequence();
     }, 800);

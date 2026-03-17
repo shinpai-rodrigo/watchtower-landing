@@ -1,5 +1,6 @@
 /* ===================================================
-   Matheus AI — Animação 2: Alertas (WhatsApp style)
+   WatchTower.AI — Animação 2: Alertas (WhatsApp Pro)
+   Premium Stylized Design
    =================================================== */
 
 /* ===== SECTION WRAPPER ===== */
@@ -90,7 +91,7 @@
   color: #25D366;
 }
 
-/* ===== FEATURE ICON COLOR VARIANTS (alerts section) ===== */
+/* ===== FEATURE ICON COLOR VARIANTS ===== */
 .feature-icon-red {
   background: linear-gradient(135deg, rgba(248,113,113,0.2), rgba(248,113,113,0.08));
   border-color: rgba(248,113,113,0.25);
@@ -110,8 +111,9 @@
 }
 
 /* ===================================================
-   PHONE MOCKUP
+   PREMIUM PHONE MOCKUP — Alerts Chat
    =================================================== */
+
 .wa-phone-wrap {
   position: relative;
   display: flex;
@@ -119,18 +121,19 @@
   align-items: center;
 }
 
-/* Ambient glow behind phone */
+/* Ambient glow */
 .wa-phone-glow {
   position: absolute;
-  width: 340px;
-  height: 340px;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37,211,102,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(107,43,255,0.22) 0%, transparent 68%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 0;
+  filter: blur(12px);
 }
 
 /* Phone frame */
@@ -138,28 +141,30 @@
   position: relative;
   z-index: 1;
   width: 300px;
-  background: #111B21;
+  background: #0D1117;
   border-radius: 36px;
-  border: 2px solid rgba(255,255,255,0.1);
+  border: 1px solid transparent;
+  outline: 1px solid rgba(107,43,255,0.35);
+  outline-offset: 0;
   box-shadow:
-    0 40px 90px rgba(0,0,0,0.7),
-    0 0 0 1px rgba(37,211,102,0.08),
+    0 0 40px rgba(107,43,255,0.30),
+    0 40px 90px rgba(0,0,0,0.70),
     inset 0 1px 0 rgba(255,255,255,0.06);
   overflow: hidden;
-  /* Fixed height so it doesn't grow */
-  height: 560px;
+  height: 580px;
   display: flex;
   flex-direction: column;
 }
 
-/* Status bar (top notch area) */
+/* ===== STATUS BAR ===== */
 .wa-status-bar {
-  background: #1F2C34;
-  padding: 8px 16px 4px;
+  background: #0D1117;
+  padding: 8px 18px 4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
+  border-bottom: 1px solid rgba(107,43,255,0.12);
 }
 
 .wa-status-time {
@@ -172,29 +177,29 @@
 .wa-status-icons {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 .wa-status-icon {
   width: 14px;
   height: 14px;
   color: #fff;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
-/* Chat header */
+/* ===== CHAT HEADER ===== */
 .wa-chat-header {
-  background: #1F2C34;
-  padding: 8px 12px 10px;
+  background: #111827;
+  padding: 8px 14px 10px;
   display: flex;
   align-items: center;
   gap: 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(107,43,255,0.15);
   flex-shrink: 0;
 }
 
 .wa-back-arrow {
-  color: #25D366;
+  color: rgba(107,43,255,0.8);
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -206,16 +211,17 @@
 }
 
 .wa-avatar {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #128C7E, #25D366);
+  background: linear-gradient(135deg, #6B2BFF, #2E8BFF);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
   flex-shrink: 0;
   position: relative;
+  box-shadow: 0 0 14px rgba(107,43,255,0.55);
 }
 
 .wa-avatar-online {
@@ -226,7 +232,8 @@
   height: 9px;
   border-radius: 50%;
   background: #25D366;
-  border: 2px solid #1F2C34;
+  border: 2px solid #111827;
+  box-shadow: 0 0 5px rgba(37,211,102,0.8);
 }
 
 .wa-contact-info {
@@ -235,9 +242,9 @@
 }
 
 .wa-contact-name {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  color: #E9EDEF;
+  color: #fff;
   line-height: 1.1;
   white-space: nowrap;
   overflow: hidden;
@@ -245,16 +252,16 @@
 }
 
 .wa-contact-status {
-  font-size: 0.65rem;
+  font-size: 0.63rem;
   color: #25D366;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 .wa-header-actions {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #AEBAC1;
+  color: rgba(255,255,255,0.45);
   flex-shrink: 0;
 }
 
@@ -263,7 +270,7 @@
   height: 18px;
 }
 
-/* Chat body (messages area) */
+/* ===== CHAT BODY ===== */
 .wa-chat-body {
   flex: 1;
   overflow: hidden;
@@ -272,38 +279,39 @@
   flex-direction: column;
   gap: 6px;
   background: #0D1117;
-  background-image:
-    radial-gradient(circle at 20% 80%, rgba(37,211,102,0.03) 0%, transparent 40%),
-    radial-gradient(circle at 80% 20%, rgba(18,140,126,0.03) 0%, transparent 40%);
   position: relative;
 }
 
-/* Subtle WhatsApp wallpaper grid pattern */
+/* Subtle dot grid wallpaper */
 .wa-chat-body::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);
-  background-size: 24px 24px;
+    radial-gradient(circle, rgba(107,43,255,0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
   pointer-events: none;
+  z-index: 0;
 }
 
 /* Date chip */
 .wa-date-chip {
   align-self: center;
-  background: rgba(17,27,33,0.85);
-  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(13,17,23,0.85);
+  border: 1px solid rgba(107,43,255,0.18);
   border-radius: 20px;
   padding: 3px 10px;
   font-size: 0.6rem;
-  color: #8696A0;
+  color: rgba(255,255,255,0.4);
   margin-bottom: 4px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
-/* ===== MESSAGE BUBBLE ===== */
+/* ===== MESSAGE BUBBLES ===== */
+
+/* Bot/WatchTower message (left) */
 .wa-msg {
   display: flex;
   flex-direction: column;
@@ -312,6 +320,8 @@
   transform: translateX(-14px) translateY(4px);
   transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34,1.3,0.64,1);
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .wa-msg.wa-msg-visible {
@@ -319,35 +329,73 @@
   transform: translateX(0) translateY(0);
 }
 
+/* User reply (right) */
+.wa-msg.wa-msg-user {
+  align-items: flex-end;
+  transform: translateX(14px) translateY(4px);
+}
+
+.wa-msg.wa-msg-user.wa-msg-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+/* Bot bubble (received) */
 .wa-bubble {
-  background: #1F2C34;
-  border-radius: 0 12px 12px 12px;
+  background: #1E2730;
+  border-radius: 16px 16px 16px 4px;
   padding: 8px 10px 6px;
   max-width: 88%;
   position: relative;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  border: 1px solid rgba(107,43,255,0.1);
 }
 
-/* WhatsApp left-side tail */
+/* Left tail */
 .wa-bubble::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -6px;
+  bottom: 0;
+  left: -5px;
   border-width: 0 6px 6px 0;
   border-style: solid;
-  border-color: transparent #1F2C34 transparent transparent;
+  border-color: transparent #1E2730 transparent transparent;
+}
+
+/* User bubble (sent) */
+.wa-bubble-user {
+  background: linear-gradient(135deg, #6B2BFF, #2E8BFF);
+  border-radius: 16px 16px 4px 16px;
+  padding: 8px 10px 6px;
+  max-width: 88%;
+  position: relative;
+  box-shadow: 0 3px 14px rgba(107,43,255,0.35);
+}
+
+/* Right tail */
+.wa-bubble-user::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+  border-width: 0 0 6px 6px;
+  border-style: solid;
+  border-color: transparent transparent #2E8BFF transparent;
 }
 
 .wa-bubble-text {
   font-size: 0.72rem;
-  color: #E9EDEF;
+  color: #E8EDF2;
   line-height: 1.5;
   white-space: pre-wrap;
   word-break: break-word;
 }
 
-/* Bold inside bubble text */
+.wa-bubble-user .wa-bubble-text {
+  color: #fff;
+}
+
+/* Bold inside bubble */
 .wa-bubble-text strong {
   font-weight: 700;
   color: #fff;
@@ -362,30 +410,36 @@
 }
 
 .wa-bubble-time {
-  font-size: 0.58rem;
-  color: #8696A0;
+  font-size: 0.56rem;
+  color: rgba(255,255,255,0.35);
+}
+
+.wa-bubble-user .wa-bubble-time {
+  color: rgba(255,255,255,0.55);
 }
 
 /* Double checkmarks */
 .wa-bubble-check {
   display: flex;
   align-items: center;
-  color: #53BDEB;
+  color: #8FC4FF;
 }
 
 .wa-bubble-check svg {
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
 }
 
 /* ===== TYPING INDICATOR ===== */
 .wa-typing {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   opacity: 0;
   transform: translateX(-10px) translateY(4px);
   transition: opacity 0.25s ease, transform 0.25s ease;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .wa-typing.wa-typing-visible {
@@ -394,31 +448,32 @@
 }
 
 .wa-typing-bubble {
-  background: #1F2C34;
-  border-radius: 0 12px 12px 12px;
+  background: #1E2730;
+  border-radius: 16px 16px 16px 4px;
   padding: 10px 14px;
   display: flex;
   align-items: center;
   gap: 4px;
   position: relative;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  border: 1px solid rgba(107,43,255,0.1);
 }
 
 .wa-typing-bubble::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -6px;
+  bottom: 0;
+  left: -5px;
   border-width: 0 6px 6px 0;
   border-style: solid;
-  border-color: transparent #1F2C34 transparent transparent;
+  border-color: transparent #1E2730 transparent transparent;
 }
 
 .wa-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #8696A0;
+  background: rgba(255,255,255,0.4);
 }
 
 .wa-dot:nth-child(1) { animation: wa-bounce 1.2s ease infinite 0ms; }
@@ -426,28 +481,29 @@
 .wa-dot:nth-child(3) { animation: wa-bounce 1.2s ease infinite 360ms; }
 
 @keyframes wa-bounce {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
   30%            { transform: translateY(-5px); opacity: 1; }
 }
 
 /* ===== CHAT INPUT BAR (decorative) ===== */
 .wa-input-bar {
-  background: #1F2C34;
-  padding: 8px 10px;
+  background: #111827;
+  padding: 8px 12px;
   display: flex;
   align-items: center;
   gap: 8px;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(107,43,255,0.15);
   flex-shrink: 0;
 }
 
 .wa-input-field {
   flex: 1;
-  background: #2A3942;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(107,43,255,0.2);
   border-radius: 20px;
   padding: 7px 14px;
   font-size: 0.7rem;
-  color: #8696A0;
+  color: rgba(255,255,255,0.3);
   pointer-events: none;
   user-select: none;
 }
@@ -461,18 +517,19 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #8696A0;
+  color: rgba(255,255,255,0.35);
 }
 
 .wa-input-send {
-  background: #25D366;
+  background: linear-gradient(135deg, #6B2BFF, #2E8BFF);
   color: #fff;
+  box-shadow: 0 0 12px rgba(107,43,255,0.45);
 }
 
 .wa-input-emoji svg,
 .wa-input-send svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 
 /* ===================================================

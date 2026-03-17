@@ -58,7 +58,7 @@ const socialLinks = [
   { icon: <Linkedin className="w-4 h-4" aria-hidden="true" />, href: "#", label: "LinkedIn" },
   { icon: <Instagram className="w-4 h-4" aria-hidden="true" />, href: "#", label: "Instagram" },
   { icon: <Github className="w-4 h-4" aria-hidden="true" />, href: "#", label: "GitHub" },
-  { icon: <Mail className="w-4 h-4" aria-hidden="true" />, href: "mailto:contato@matheus-ai.ai", label: "E-mail" },
+  { icon: <Mail className="w-4 h-4" aria-hidden="true" />, href: "mailto:contato@watchtower.ai", label: "E-mail" },
 ];
 
 export default function Footer() {
@@ -95,7 +95,7 @@ export default function Footer() {
             <a
               href="#"
               className="flex items-center gap-2.5 group w-fit"
-              aria-label="Matheus AI — voltar ao topo"
+              aria-label="WatchTower.AI — voltar ao topo"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               <div className="relative w-9 h-9 flex items-center justify-center">
@@ -106,8 +106,8 @@ export default function Footer() {
                 />
               </div>
               <span className="font-bold text-lg tracking-tight">
-                <span className="text-white">Matheus</span>
-                <span className="gradient-text"> AI</span>
+                <span className="text-white">WatchTower</span>
+                <span className="gradient-text">.AI</span>
               </span>
             </a>
 
@@ -139,12 +139,12 @@ export default function Footer() {
 
             {/* Email badge */}
             <a
-              href="mailto:contato@matheus-ai.ai"
+              href="mailto:contato@watchtower.ai"
               className="inline-flex items-center gap-2 text-xs text-text-secondary hover:text-white transition-colors w-fit"
-              aria-label="Enviar e-mail para contato@matheus-ai.ai"
+              aria-label="Enviar e-mail para contato@watchtower.ai"
             >
               <Mail className="w-3.5 h-3.5" aria-hidden="true" />
-              contato@matheus-ai.ai
+              contato@watchtower.ai
             </a>
           </div>
 
@@ -196,7 +196,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5">
           <p className="text-xs text-text-secondary text-center sm:text-left">
-            © {new Date().getFullYear()} Matheus AI. Todos os direitos
+            © {new Date().getFullYear()} WatchTower.AI. Todos os direitos
             reservados.
           </p>
 

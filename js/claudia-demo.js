@@ -1,14 +1,15 @@
 /* ===================================================
-   Matheus AI — Animação 1: ClaudIA em Ação
+   WatchTower.AI — Animação 1: ClaudIA em Ação
+   Premium WhatsApp Pro Design
    =================================================== */
 
 (function initClaudiaDemo() {
 
   /* ---- DOM REFERENCES ---- */
-  var chatBody        = document.getElementById('claudia-chat-body');
-  var inputText       = document.getElementById('claudia-input-text');
-  var inputCursor     = document.getElementById('claudia-input-cursor');
-  var sendBtn         = document.getElementById('claudia-send-btn');
+  var chatBody    = document.getElementById('claudia-chat-body');
+  var inputText   = document.getElementById('claudia-input-text');
+  var inputCursor = document.getElementById('claudia-input-cursor');
+  var sendBtn     = document.getElementById('claudia-send-btn');
 
   if (!chatBody || !inputText || !inputCursor || !sendBtn) return;
 
@@ -17,40 +18,41 @@
 
   var CONVERSATIONS = [
     {
-      user: 'ClaudIA, quais são as métricas de hoje?',
-      botText: 'Aqui estão as métricas de hoje:',
+      user: 'Qual meu ROAS de hoje?',
+      botText: 'Seu ROAS hoje está em:',
       botData: [
-        { label: 'Installs',   value: '4.392',   cls: 'claudia-data-value-green' },
-        { label: 'CPA Médio',  value: 'R$ 18,40', cls: 'claudia-data-value-blue' },
-        { label: 'ROAS',       value: '3.2x',     cls: 'claudia-data-value-green' },
-        { label: 'Churn',      value: '2.1%',     cls: 'claudia-data-value-orange' }
+        { label: 'ROAS Geral',        value: '3.2x',     cls: 'claudia-data-value-green' },
+        { label: 'Brand Search',      value: '5.1x',     cls: 'claudia-data-value-green' },
+        { label: 'Remarketing',       value: '4.3x',     cls: 'claudia-data-value-blue' },
+        { label: 'App Install iOS',   value: '2.8x',     cls: 'claudia-data-value-orange' }
       ],
       chart: true
     },
     {
-      user: 'Compare esta semana com a anterior.',
-      botText: 'Comparativo da semana:',
+      user: 'E o CPA das últimas 24h?',
+      botText: 'CPA nas últimas 24 horas:',
       botData: [
-        { label: 'Installs (+12%)',   value: '4.392 vs 3.922', cls: 'claudia-data-value-green' },
-        { label: 'Receita (+8%)',     value: 'R$ 82k vs R$ 76k', cls: 'claudia-data-value-green' },
-        { label: 'CPA (-5%)',         value: 'R$ 18,40 vs R$ 19,30', cls: 'claudia-data-value-blue' }
+        { label: 'CPA Médio',         value: 'R$ 18,40', cls: 'claudia-data-value-blue' },
+        { label: 'Meta',              value: 'R$ 20,00', cls: 'claudia-data-value-green' },
+        { label: 'Variação (7d)',      value: '−5.1%',   cls: 'claudia-data-value-green' },
+        { label: 'Installs',          value: '4.392',    cls: 'claudia-data-value-blue' }
       ],
       chart: false
     },
     {
-      user: 'Qual campanha tem melhor ROAS?',
+      user: 'Qual campanha performa melhor?',
       botText: 'Top 3 campanhas por ROAS:',
       botData: [
         { label: '1. Brand Search',    value: 'ROAS 5.1x', cls: 'claudia-data-value-green' },
         { label: '2. Remarketing',     value: 'ROAS 4.3x', cls: 'claudia-data-value-blue' },
-        { label: '3. App Install iOS', value: 'ROAS 3.8x', cls: 'claudia-data-value-orange' }
+        { label: '3. App Install iOS', value: 'ROAS 2.8x', cls: 'claudia-data-value-orange' }
       ],
       chart: false
     }
   ];
 
-  var timers     = [];
-  var convIndex  = 0;
+  var timers    = [];
+  var convIndex = 0;
 
   /* ---- HELPERS ---- */
   function clearTimers() {
@@ -61,6 +63,7 @@
   function delay(fn, ms) {
     var t = setTimeout(fn, ms);
     timers.push(t);
+    return t;
   }
 
   function scrollBottom() {
@@ -69,6 +72,13 @@
 
   function clearChat() {
     chatBody.innerHTML = '';
+  }
+
+  function getCurrentTime() {
+    var d = new Date();
+    var h = String(d.getHours()).padStart(2, '0');
+    var m = String(d.getMinutes()).padStart(2, '0');
+    return h + ':' + m;
   }
 
   /* ---- INPUT TYPING SIMULATION ---- */
@@ -80,7 +90,7 @@
       if (i < text.length) {
         inputText.textContent += text[i];
         i++;
-        delay(next, 45 + Math.random() * 30);
+        delay(next, 42 + Math.random() * 28);
       } else {
         if (doneCb) doneCb();
       }
@@ -93,20 +103,25 @@
     inputCursor.classList.remove('active');
   }
 
-  /* ---- MESSAGE BUILDERS ---- */
-  function addTimestamp() {
-    var el = document.createElement('div');
-    el.className = 'claudia-timestamp';
-    el.textContent = 'Hoje · ' + getCurrentTime();
-    chatBody.appendChild(el);
-    scrollBottom();
+  /* ---- CHECKMARK SVG ---- */
+  function buildCheckSvg() {
+    var check = document.createElement('span');
+    check.className = 'claudia-bubble-check';
+    check.setAttribute('aria-hidden', 'true');
+    check.innerHTML =
+      '<svg viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+        '<path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-.358-.325a.319.319 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.033l6.272-8.048a.366.366 0 0 0-.064-.51zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.879a.32.32 0 0 1-.484.033L1.891 7.769a.366.366 0 0 0-.516.031l-.423.48a.418.418 0 0 0 .025.546l3.098 2.781a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.064-.51z" fill="currentColor"/>' +
+      '</svg>';
+    return check;
   }
 
-  function getCurrentTime() {
-    var d = new Date();
-    var h = String(d.getHours()).padStart(2,'0');
-    var m = String(d.getMinutes()).padStart(2,'0');
-    return h + ':' + m;
+  /* ---- MESSAGE BUILDERS ---- */
+  function addTimestampChip() {
+    var el = document.createElement('div');
+    el.className = 'claudia-timestamp';
+    el.textContent = 'Hoje';
+    chatBody.appendChild(el);
+    scrollBottom();
   }
 
   function addUserMessage(text) {
@@ -115,7 +130,21 @@
 
     var bubble = document.createElement('div');
     bubble.className = 'claudia-bubble';
-    bubble.textContent = text;
+
+    var textEl = document.createElement('span');
+    textEl.textContent = text;
+    bubble.appendChild(textEl);
+
+    var footer = document.createElement('div');
+    footer.className = 'claudia-bubble-footer';
+
+    var time = document.createElement('span');
+    time.className = 'claudia-bubble-time';
+    time.textContent = getCurrentTime();
+
+    footer.appendChild(time);
+    footer.appendChild(buildCheckSvg());
+    bubble.appendChild(footer);
 
     wrap.appendChild(bubble);
     chatBody.appendChild(wrap);
@@ -188,8 +217,6 @@
       card.appendChild(rowEl);
     });
 
-    bubble.appendChild(card);
-
     /* Mini chart */
     if (conv.chart) {
       var chart = document.createElement('div');
@@ -205,6 +232,17 @@
 
       card.appendChild(chart);
     }
+
+    bubble.appendChild(card);
+
+    /* Bubble footer with time */
+    var footer = document.createElement('div');
+    footer.className = 'claudia-bubble-footer';
+    var time = document.createElement('span');
+    time.className = 'claudia-bubble-time';
+    time.textContent = getCurrentTime();
+    footer.appendChild(time);
+    bubble.appendChild(footer);
 
     wrap.appendChild(avatar);
     wrap.appendChild(bubble);
@@ -244,7 +282,7 @@
 
   function startLoop() {
     clearChat();
-    addTimestamp();
+    addTimestampChip();
     convIndex = 0;
 
     function nextConv() {
@@ -259,7 +297,6 @@
       var conv = CONVERSATIONS[convIndex];
       convIndex++;
 
-      /* Small gap between exchanges */
       delay(function() {
         runConversation(conv);
         /* Schedule next conversation */
@@ -270,7 +307,7 @@
     nextConv();
   }
 
-  /* ---- INTERSECTION OBSERVER — only run when visible ---- */
+  /* ---- INTERSECTION OBSERVER ---- */
   var started = false;
 
   function start() {

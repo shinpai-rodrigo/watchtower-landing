@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Matheus AI — Suas métricas de negócio. Entregues no WhatsApp.",
+  title: "WatchTower.AI — Suas métricas de negócio. Entregues no WhatsApp.",
   description:
     "Conecte suas ferramentas. Faça perguntas. Receba alertas. Ganhe insights. Tudo em uma conversa com ClaudIA no WhatsApp. Monitore suas métricas de negócio em tempo real.",
   keywords: [
@@ -11,20 +11,20 @@ export const metadata: Metadata = {
     "WhatsApp analytics",
     "alertas inteligentes",
     "SaaS métricas",
-    "Matheus AI",
+    "WatchTower.AI",
     "ClaudIA",
     "dashboard WhatsApp",
   ],
-  authors: [{ name: "Matheus AI" }],
-  creator: "Matheus AI",
-  publisher: "Matheus AI",
+  authors: [{ name: "WatchTower.AI" }],
+  creator: "WatchTower.AI",
+  publisher: "WatchTower.AI",
   robots: "index, follow",
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://matheus-ai.ai",
-    siteName: "Matheus AI",
-    title: "Matheus AI — Suas métricas de negócio. Entregues no WhatsApp.",
+    url: "https://watchtower.ai",
+    siteName: "WatchTower.AI",
+    title: "WatchTower.AI — Suas métricas de negócio. Entregues no WhatsApp.",
     description:
       "Conecte suas ferramentas. Faça perguntas. Receba alertas. Ganhe insights. Tudo em uma conversa com ClaudIA no WhatsApp.",
     images: [
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Matheus AI — Monitoramento de métricas no WhatsApp",
+        alt: "WatchTower.AI — Monitoramento de métricas no WhatsApp",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Matheus AI — Suas métricas de negócio. Entregues no WhatsApp.",
+    title: "WatchTower.AI — Suas métricas de negócio. Entregues no WhatsApp.",
     description:
       "Conecte suas ferramentas. Faça perguntas. Receba alertas. Ganhe insights. Tudo em uma conversa com ClaudIA.",
     images: ["/og-image.png"],
