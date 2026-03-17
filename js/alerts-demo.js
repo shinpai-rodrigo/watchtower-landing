@@ -1,280 +1,278 @@
 /* ===================================================
-   Matheus AI — Animação 2: Alertas Inteligentes
+   Matheus AI — Alertas: WhatsApp Chat Animation
    =================================================== */
 
-(function initAlertsDemo() {
+(function initAlertsChatDemo() {
 
-  /* ---- DOM REFERENCES ---- */
-  var alertsList    = document.getElementById('alerts-list');
-  var footerCount   = document.getElementById('alerts-footer-count');
-  var summaryRed    = document.getElementById('alerts-sum-red');
-  var summaryYellow = document.getElementById('alerts-sum-yellow');
-  var summaryBlue   = document.getElementById('alerts-sum-blue');
+  /* ---- CONFIG ---- */
+  var TYPING_DURATION   = 1500;   /* ms typing indicator visible */
+  var MSG_PAUSE         = 2500;   /* ms gap between messages */
+  var RESTART_PAUSE     = 3000;   /* ms after last message before loop */
 
-  if (!alertsList) return;
+  /* ---- TIMESTAMPS (advances as animation plays) ---- */
+  var BASE_HOUR   = 14;
+  var BASE_MINUTE = 31;
 
-  /* ---- SVG ICONS ---- */
-  var ICONS = {
-    critical: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
-    warning:  '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
-    info:     '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>',
-    success:  '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'
-  };
+  function nextTimestamp() {
+    BASE_MINUTE += 1;
+    if (BASE_MINUTE >= 60) { BASE_MINUTE = 0; BASE_HOUR = (BASE_HOUR + 1) % 24; }
+    var h = String(BASE_HOUR).padStart(2, '0');
+    var m = String(BASE_MINUTE).padStart(2, '0');
+    return h + ':' + m;
+  }
 
-  /* ---- ALERT DATA ---- */
-  var ALERTS_POOL = [
+  function resetTimestamps() {
+    BASE_HOUR   = 14;
+    BASE_MINUTE = 31;
+  }
+
+  /* ---- MESSAGES ---- */
+  var MESSAGES = [
     {
-      type: 'critical',
-      title: 'CPA acima da meta',
-      desc: 'CPA ultrapassou R$ 20 — atual: R$ 23,50 na campanha iOS',
-      badge: 'CRÍTICO'
+      lines: [
+        { bold: false, text: '\u26a0\ufe0f ' },
+        { bold: true,  text: 'CPA Ultrapassou a Meta!' },
+        { bold: false, text: '\n\nSeu CPA chegou em ' },
+        { bold: true,  text: 'R$ 22,15' },
+        { bold: false, text: ' \u2014 acima do limite de R$ 20,00.\n\n\ud83d\udcc9 Campanha: iOS \u2014 Black Friday\n\ud83d\udd50 Detectado agora' }
+      ]
     },
     {
-      type: 'warning',
-      title: 'Taxa de conversão caindo',
-      desc: 'Conversão da loja App Store caiu 14% nas últimas 3h',
-      badge: 'ATENÇÃO'
+      lines: [
+        { bold: true,  text: '\ud83d\udcca Resumo r\u00e1pido:' },
+        { bold: false, text: '\n\n\u2022 ROAS atual: 2.8x (meta: 3x)\n\u2022 Impress\u00f5es: 45.2k\n\u2022 Cliques: 1.847\n\nDeseja pausar a campanha?' }
+      ]
     },
     {
-      type: 'info',
-      title: 'Relatório semanal pronto',
-      desc: 'Resumo de desempenho da semana disponível para revisão',
-      badge: 'INFO'
+      lines: [
+        { bold: false, text: '\u2705 ' },
+        { bold: true,  text: 'A\u00e7\u00e3o registrada!' },
+        { bold: false, text: '\n\nCampanha iOS pausada com sucesso.\n\nMonitorando as demais campanhas... \ud83d\udc40' }
+      ]
     },
     {
-      type: 'success',
-      title: 'Meta de installs atingida',
-      desc: 'Campanha Android superou 5.000 installs — meta do dia',
-      badge: 'SUCESSO'
-    },
-    {
-      type: 'warning',
-      title: 'Orçamento 80% consumido',
-      desc: 'Google Ads — campanha "Remarketing Q2" com alto gasto',
-      badge: 'ATENÇÃO'
-    },
-    {
-      type: 'info',
-      title: 'Nova integração ativa',
-      desc: 'DataRank sincronizado — dados de ASO atualizados',
-      badge: 'INFO'
-    },
-    {
-      type: 'critical',
-      title: 'Queda no Rating da App Store',
-      desc: 'Rating caiu de 4.7 para 4.2 — 8 avaliações negativas hoje',
-      badge: 'CRÍTICO'
-    },
-    {
-      type: 'success',
-      title: 'ROAS acima da meta',
-      desc: 'ROAS da campanha de vídeo atingiu 4.1x — acima de 3.5x',
-      badge: 'SUCESSO'
-    },
-    {
-      type: 'warning',
-      title: 'Latência de API elevada',
-      desc: 'Webhook do RankMyApp com 2.4s de delay — monitorando',
-      badge: 'ATENÇÃO'
-    },
-    {
-      type: 'info',
-      title: 'Pico de tráfego detectado',
-      desc: '+340% de sessões orgânicas — possível viral nas redes',
-      badge: 'INFO'
+      lines: [
+        { bold: false, text: '\ud83c\udfaf ' },
+        { bold: true,  text: 'Meta atingida!' },
+        { bold: false, text: '\n\nCampanha Android bateu 500 installs hoje!\n\nParab\u00e9ns! \ud83c\udf89' }
+      ]
     }
   ];
 
   /* ---- STATE ---- */
-  var shownAlerts  = [];
-  var poolIndex    = 0;
-  var totalShown   = 0;
-  var counts       = { critical: 0, warning: 0, info: 0 };
-  var MAX_VISIBLE  = 4;
-  var timers       = [];
+  var timers  = [];
+  var started = false;
+  var chatBody = null;
 
   /* ---- HELPERS ---- */
+  function t(fn, ms) {
+    var id = setTimeout(fn, ms);
+    timers.push(id);
+    return id;
+  }
+
   function clearTimers() {
-    timers.forEach(function(t) { clearTimeout(t); });
+    timers.forEach(function(id) { clearTimeout(id); });
     timers = [];
   }
 
-  function delay(fn, ms) {
-    var t = setTimeout(fn, ms);
-    timers.push(t);
-    return t;
+  /* ---- BUILD ELEMENTS ---- */
+
+  function buildDateChip() {
+    var chip = document.createElement('div');
+    chip.className = 'wa-date-chip';
+    chip.textContent = 'Hoje';
+    return chip;
   }
 
-  function relativeTime(secsAgo) {
-    if (secsAgo < 10) return 'agora';
-    if (secsAgo < 60) return secsAgo + 's atrás';
-    return Math.floor(secsAgo / 60) + 'min atrás';
-  }
+  function buildTypingIndicator() {
+    var wrap = document.createElement('div');
+    wrap.className = 'wa-typing';
 
-  function updateSummary() {
-    if (summaryRed)    summaryRed.textContent    = counts.critical;
-    if (summaryYellow) summaryYellow.textContent = counts.warning;
-    if (summaryBlue)   summaryBlue.textContent   = counts.info;
-    if (footerCount)   footerCount.textContent   = totalShown + ' alertas disparados';
-  }
+    var bubble = document.createElement('div');
+    bubble.className = 'wa-typing-bubble';
 
-  /* ---- BUILD ALERT ELEMENT ---- */
-  function buildAlertEl(alertData, secsAgo) {
-    var item = document.createElement('div');
-    item.className = 'alert-item alert-item-' + alertData.type;
-
-    /* Icon */
-    var iconWrap = document.createElement('div');
-    iconWrap.className = 'alert-icon alert-icon-' + alertData.type;
-    iconWrap.innerHTML = ICONS[alertData.type] || ICONS.info;
-
-    /* Content */
-    var content = document.createElement('div');
-    content.className = 'alert-content';
-
-    var top = document.createElement('div');
-    top.className = 'alert-content-top';
-
-    var title = document.createElement('span');
-    title.className = 'alert-title';
-    title.textContent = alertData.title;
-
-    var badge = document.createElement('span');
-    badge.className = 'alert-badge alert-badge-' + alertData.type;
-    badge.textContent = alertData.badge;
-
-    var time = document.createElement('span');
-    time.className = 'alert-time';
-    time.textContent = relativeTime(secsAgo);
-
-    top.appendChild(title);
-    top.appendChild(badge);
-
-    var desc = document.createElement('div');
-    desc.className = 'alert-desc';
-    desc.textContent = alertData.desc;
-
-    var bottom = document.createElement('div');
-    bottom.style.marginTop = '4px';
-    bottom.appendChild(time);
-
-    content.appendChild(top);
-    content.appendChild(desc);
-    content.appendChild(bottom);
-
-    item.appendChild(iconWrap);
-    item.appendChild(content);
-
-    return item;
-  }
-
-  /* ---- ADD ALERT ---- */
-  function addAlert() {
-    var data = ALERTS_POOL[poolIndex % ALERTS_POOL.length];
-    poolIndex++;
-    totalShown++;
-
-    /* Update counts */
-    if (data.type === 'critical') counts.critical++;
-    else if (data.type === 'warning') counts.warning++;
-    else if (data.type === 'info') counts.info++;
-
-    updateSummary();
-
-    /* Build and prepend */
-    var el = buildAlertEl(data, 0);
-    alertsList.insertBefore(el, alertsList.firstChild);
-    shownAlerts.unshift(el);
-
-    /* Trim to max visible */
-    if (shownAlerts.length > MAX_VISIBLE) {
-      var old = shownAlerts.pop();
-      /* Fade out smoothly */
-      old.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-      old.style.opacity = '0';
-      old.style.transform = 'translateX(16px)';
-      delay(function() {
-        if (old.parentNode) old.parentNode.removeChild(old);
-      }, 450);
+    for (var i = 0; i < 3; i++) {
+      var dot = document.createElement('span');
+      dot.className = 'wa-dot';
+      bubble.appendChild(dot);
     }
 
-    /* Update relative timestamps over time */
-    updateTimestamps();
+    wrap.appendChild(bubble);
+    return wrap;
   }
 
-  /* ---- UPDATE TIMESTAMPS ---- */
-  var secondsElapsed = 0;
+  function buildMessage(msgData, timestamp) {
+    var wrap = document.createElement('div');
+    wrap.className = 'wa-msg';
 
-  function updateTimestamps() {
-    var timeEls = alertsList.querySelectorAll('.alert-time');
-    timeEls.forEach(function(el, i) {
-      var secs = i * 8 + secondsElapsed % 8;
-      el.textContent = relativeTime(secs);
+    var bubble = document.createElement('div');
+    bubble.className = 'wa-bubble';
+
+    /* Build text with bold spans */
+    var textEl = document.createElement('div');
+    textEl.className = 'wa-bubble-text';
+
+    msgData.lines.forEach(function(segment) {
+      if (segment.bold) {
+        var strong = document.createElement('strong');
+        strong.textContent = segment.text;
+        textEl.appendChild(strong);
+      } else {
+        textEl.appendChild(document.createTextNode(segment.text));
+      }
     });
+
+    /* Meta (time + checkmarks) */
+    var meta = document.createElement('div');
+    meta.className = 'wa-bubble-meta';
+
+    var timeEl = document.createElement('span');
+    timeEl.className = 'wa-bubble-time';
+    timeEl.textContent = timestamp;
+
+    var check = document.createElement('span');
+    check.className = 'wa-bubble-check';
+    check.setAttribute('aria-hidden', 'true');
+    check.innerHTML =
+      '<svg viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+        '<path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-.358-.325a.319.319 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.033l6.272-8.048a.366.366 0 0 0-.064-.51zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.879a.32.32 0 0 1-.484.033L1.891 7.769a.366.366 0 0 0-.516.031l-.423.48a.418.418 0 0 0 .025.546l3.098 2.781a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.064-.51z" fill="currentColor"/>' +
+      '</svg>';
+
+    meta.appendChild(timeEl);
+    meta.appendChild(check);
+
+    bubble.appendChild(textEl);
+    bubble.appendChild(meta);
+    wrap.appendChild(bubble);
+
+    return wrap;
   }
 
-  /* ---- CYCLE ---- */
-  var INTERVALS = [2200, 3000, 2600, 3400, 2800, 2000, 3200, 2500, 3000, 2700];
-  var cycleStep = 0;
-
-  function scheduleNext() {
-    var ms = INTERVALS[cycleStep % INTERVALS.length];
-    cycleStep++;
-    secondsElapsed += Math.round(ms / 1000);
-    delay(function() {
-      addAlert();
-      scheduleNext();
-    }, ms);
+  /* ---- SCROLL to bottom ---- */
+  function scrollToBottom() {
+    if (!chatBody) return;
+    chatBody.scrollTop = chatBody.scrollHeight;
   }
 
-  /* ---- RESET ---- */
-  function reset() {
+  /* ---- SHOW one message in sequence ---- */
+  function showMessage(index, onDone) {
+    var msgData   = MESSAGES[index];
+    var timestamp = nextTimestamp();
+
+    /* 1. Show typing indicator */
+    var typingEl = buildTypingIndicator();
+    chatBody.appendChild(typingEl);
+    scrollToBottom();
+
+    t(function() {
+      typingEl.classList.add('wa-typing-visible');
+    }, 16); /* next frame */
+
+    /* 2. After typing duration — swap typing for message bubble */
+    t(function() {
+      /* Fade out typing */
+      typingEl.classList.remove('wa-typing-visible');
+
+      t(function() {
+        if (typingEl.parentNode) typingEl.parentNode.removeChild(typingEl);
+
+        /* Append message */
+        var msgEl = buildMessage(msgData, timestamp);
+        chatBody.appendChild(msgEl);
+        scrollToBottom();
+
+        t(function() {
+          msgEl.classList.add('wa-msg-visible');
+          scrollToBottom();
+        }, 16);
+
+        if (onDone) t(onDone, MSG_PAUSE);
+      }, 250);
+
+    }, TYPING_DURATION);
+  }
+
+  /* ---- RUN full sequence ---- */
+  function runSequence() {
+    var index = 0;
+
+    function next() {
+      if (index >= MESSAGES.length) {
+        /* All messages shown — wait then restart */
+        t(function() {
+          restart();
+        }, RESTART_PAUSE);
+        return;
+      }
+      var current = index;
+      index++;
+      showMessage(current, next);
+    }
+
+    next();
+  }
+
+  /* ---- CLEAR chat and restart ---- */
+  function restart() {
     clearTimers();
-    alertsList.innerHTML = '';
-    shownAlerts = [];
-    poolIndex = 0;
-    totalShown = 0;
-    counts = { critical: 0, warning: 0, info: 0 };
-    cycleStep = 0;
-    secondsElapsed = 0;
-    updateSummary();
+    resetTimestamps();
+
+    if (!chatBody) return;
+
+    /* Fade all messages out */
+    var msgs = chatBody.querySelectorAll('.wa-msg, .wa-typing');
+    msgs.forEach(function(el) {
+      el.style.transition = 'opacity 0.4s ease';
+      el.style.opacity = '0';
+    });
+
+    t(function() {
+      /* Keep only date chip, remove messages */
+      var toRemove = chatBody.querySelectorAll('.wa-msg, .wa-typing');
+      toRemove.forEach(function(el) {
+        if (el.parentNode) el.parentNode.removeChild(el);
+      });
+
+      /* Small breath pause before re-starting */
+      t(function() {
+        runSequence();
+      }, 600);
+    }, 450);
   }
 
-  /* ---- INIT ---- */
+  /* ---- START ---- */
   function start() {
-    reset();
+    chatBody = document.querySelector('.wa-chat-body');
+    if (!chatBody) return;
 
-    /* Seed a couple of initial alerts immediately */
-    addAlert();
-    delay(function() { addAlert(); }, 700);
-    delay(function() { addAlert(); }, 1400);
-
-    /* Then keep adding on interval */
-    delay(scheduleNext, 2500);
+    /* Small initial delay so user sees the empty chat first */
+    t(function() {
+      runSequence();
+    }, 800);
   }
 
   /* ---- INTERSECTION OBSERVER ---- */
-  var started = false;
-
-  function lazyStart() {
-    if (started) return;
-    started = true;
-    start();
-  }
-
   var section = document.getElementById('alerts-demo');
-  if (!section) { lazyStart(); return; }
+  if (!section) {
+    start();
+    return;
+  }
 
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function(entries) {
       if (entries[0].isIntersecting) {
-        lazyStart();
+        if (!started) {
+          started = true;
+          start();
+        }
         io.disconnect();
       }
     }, { threshold: 0.15 });
     io.observe(section);
   } else {
-    lazyStart();
+    started = true;
+    start();
   }
 
 })();
