@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Matheus AI — Monitoramento inteligente de métricas via WhatsApp. Conecte suas ferramentas, faça perguntas e receba alertas com a ClaudIA." />
+  <title>Matheus AI — Your business metrics. Delivered on WhatsApp.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header id="navbar" class="navbar" role="banner">
+    <nav class="nav-container" aria-label="Navegação principal">
+      <a href="#" class="nav-logo" aria-label="Matheus AI — página inicial">
+        <div class="nav-logo-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+        </div>
+        <span class="nav-logo-text"><span class="text-white">Matheus</span><span class="gradient-text"> AI</span></span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#como-funciona" class="nav-link">Como funciona</a></li>
+        <li><a href="#funcionalidades" class="nav-link">Funcionalidades</a></li>
+        <li><a href="#integracoes" class="nav-link">Integrações</a></li>
+        <li><a href="#planos" class="nav-link">Planos</a></li>
+      </ul>
+
+      <div class="nav-cta-desktop">
+        <a href="#planos" class="btn-primary">Falar com a ClaudIA</a>
+      </div>
+
+      <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Abrir menu" aria-expanded="false">
+        <svg id="iconMenu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="iconClose" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </nav>
+
+    <div class="nav-mobile-menu" id="mobileMenu" aria-hidden="true">
+      <a href="#como-funciona" class="nav-mobile-link">Como funciona</a>
+      <a href="#funcionalidades" class="nav-mobile-link">Funcionalidades</a>
+      <a href="#integracoes" class="nav-mobile-link">Integrações</a>
+      <a href="#planos" class="nav-mobile-link">Planos</a>
+      <a href="#planos" class="btn-primary btn-mobile-cta">Falar com a ClaudIA</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="hero section-padding" aria-label="Hero — Matheus AI">
+      <div class="grid-bg" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="orb orb-left animate-float" aria-hidden="true"></div>
+      <div class="orb orb-right animate-float-delayed" aria-hidden="true"></div>
+
+      <div class="section-container hero-grid">
+        <!-- Left copy -->
+        <div class="hero-copy fade-in-up">
+          <span class="badge-pill">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Monitoramento inteligente via WhatsApp
+          </span>
+
+          <h1 class="hero-title">
+            Your business metrics.<br />
+            <span class="gradient-text">Delivered on WhatsApp.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Conecte suas ferramentas. Faça perguntas. Receba alertas. Ganhe insights.
+            Tudo em uma conversa com <strong>ClaudIA</strong>.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#planos" class="btn-primary btn-lg">
+              Falar com a ClaudIA
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#como-funciona" class="btn-secondary btn-lg">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Ver como funciona
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-value">24/7</span>
+              <span class="stat-label">Monitoramento ativo</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item">
+              <span class="stat-value">&lt;1s</span>
+              <span class="stat-label">Tempo de resposta</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item">
+              <span class="stat-value gradient-text">∞</span>
+              <span class="stat-label">Integrações possíveis</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: WhatsApp Mockup -->
+        <div class="hero-mockup fade-in-right">
+          <div class="mockup-glow" aria-hidden="true"></div>
+          <div class="phone-mockup">
+            <div class="phone-header">
+              <div class="phone-avatar">C</div>
+              <div class="phone-info">
+                <p class="phone-name">ClaudIA</p>
+                <p class="phone-status">online agora</p>
+              </div>
+              <div class="phone-dot" aria-hidden="true"></div>
+            </div>
+            <div class="chat-area" id="chatArea" role="log" aria-label="Conversa com ClaudIA" aria-live="polite">
+              <div class="chat-date"><span>Hoje</span></div>
+            </div>
+            <div class="phone-input-bar">
+              <div class="phone-input-field"><span>Digite uma mensagem</span></div>
+              <div class="phone-send-btn" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-bottom-fade" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section id="como-funciona" class="section-padding reveal" aria-labelledby="how-it-works-title">
+      <div class="section-bg-accent" aria-hidden="true"></div>
+      <div class="section-container">
+        <div class="section-header">
+          <span class="badge-pill badge-secondary">Como funciona</span>
+          <h2 id="how-it-works-title" class="section-title">
+            Três passos para <span class="gradient-text">monitorar tudo.</span>
+          </h2>
+          <p class="section-subtitle">Do setup à sua primeira resposta da ClaudIA em menos de 10 minutos.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card card-surface hover-glow-purple reveal-stagger">
+            <div class="step-top">
+              <div class="step-icon-wrap step-icon-purple">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </div>
+              <span class="step-number">01</span>
+            </div>
+            <h3 class="step-title">Conecte suas ferramentas</h3>
+            <p class="step-desc">Integre em minutos. Conecte RankMyApp, DataRank, Google Ads, SQL databases, APIs REST ou qualquer sistema via webhook.</p>
+            <div class="step-tags">
+              <span class="tag">RankMyApp</span><span class="tag">DataRank</span><span class="tag">APIs</span><span class="tag">SQL</span><span class="tag">Webhooks</span>
+            </div>
+            <div class="step-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+
+          <div class="step-card card-surface hover-glow-blue reveal-stagger">
+            <div class="step-top">
+              <div class="step-icon-wrap step-icon-blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <span class="step-number">02</span>
+            </div>
+            <h3 class="step-title">Pergunte para a ClaudIA</h3>
+            <p class="step-desc">Fale em linguagem natural no WhatsApp. "Quantos installs ontem?", "Qual meu CPA hoje?", "Compare essa semana com a anterior."</p>
+            <div class="step-tags">
+              <span class="tag">Linguagem natural</span><span class="tag">WhatsApp</span><span class="tag">Tempo real</span>
+            </div>
+            <div class="step-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+
+          <div class="step-card card-surface hover-glow-accent reveal-stagger">
+            <div class="step-top">
+              <div class="step-icon-wrap step-icon-accent">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              </div>
+              <span class="step-number">03</span>
+            </div>
+            <h3 class="step-title">Receba alertas e insights</h3>
+            <p class="step-desc">ClaudIA monitora 24/7 e te avisa quando algo importante acontece. Anomalias, metas atingidas ou ultrapassadas, padrões inesperados.</p>
+            <div class="step-tags">
+              <span class="tag">Alertas inteligentes</span><span class="tag">24/7</span><span class="tag">Insights de IA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-bottom-cta reveal">
+          <p class="text-muted">Pronto para começar? <a href="#planos" class="link-primary">Ver planos disponíveis →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section id="funcionalidades" class="section-padding reveal" aria-labelledby="features-title">
+      <div class="section-divider-top section-divider-purple" aria-hidden="true"></div>
+      <div class="section-bg-center" aria-hidden="true"></div>
+      <div class="section-container">
+        <div class="section-header">
+          <span class="badge-pill badge-accent">Funcionalidades</span>
+          <h2 id="features-title" class="section-title">
+            Tudo que você precisa <span class="gradient-text">em uma conversa.</span>
+          </h2>
+          <p class="section-subtitle">ClaudIA transforma dados complexos em conversas simples. Sem dashboards para abrir, sem relatórios para gerar.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card card-surface reveal-stagger" data-glow="rgba(107,43,255,0.25)">
+            <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#6B2BFF,#8F5CFF);box-shadow:0 8px 24px rgba(107,43,255,0.25)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title">Pergunte seus dados</h3>
+              <p class="feature-desc">Faça perguntas em linguagem natural no WhatsApp. A ClaudIA entende contexto, histórico e responde com dados precisos da sua empresa.</p>
+            </div>
+          </div>
+
+          <div class="feature-card card-surface reveal-stagger" data-glow="rgba(255,106,61,0.2)">
+            <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#FF6A3D,#FF9A3C);box-shadow:0 8px 24px rgba(255,106,61,0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title">Alertas inteligentes</h3>
+              <p class="feature-desc">Configure regras como "Se CPA > R$ 20 me avise" ou "Notifique quando installs caírem 10%". ClaudIA monitora e alerta em tempo real.</p>
+            </div>
+          </div>
+
+          <div class="feature-card card-surface reveal-stagger" data-glow="rgba(143,92,255,0.25)">
+            <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#8F5CFF,#2E8BFF);box-shadow:0 8px 24px rgba(143,92,255,0.25)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <div class="feature-content">
+              <div class="feature-title-row">
+                <h3 class="feature-title">Insights de IA</h3>
+                <span class="feature-badge">IA Avançada</span>
+              </div>
+              <p class="feature-desc">Detecção automática de padrões, anomalias e oportunidades nos seus dados. ClaudIA age proativamente, não apenas reage às perguntas.</p>
+            </div>
+          </div>
+
+          <div class="feature-card card-surface reveal-stagger" data-glow="rgba(46,139,255,0.25)">
+            <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#8F5CFF,#22D3EE);box-shadow:0 8px 24px rgba(46,139,255,0.25)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title">Integrações universais</h3>
+              <p class="feature-desc">Conecte qualquer sistema via API REST, webhook, SQL ou integração nativa. Se tem dados, a ClaudIA consegue monitorar.</p>
+            </div>
+          </div>
+
+          <div class="feature-card card-surface reveal-stagger" data-glow="rgba(74,222,128,0.2)">
+            <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#4ADE80,#2E8BFF);box-shadow:0 8px 24px rgba(74,222,128,0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title">Monitoramento 24/7</h3>
+              <p class="feature-desc">Seus dados nunca dormem, e a ClaudIA também não. Monitoramento contínuo mesmo quando você não está olhando para o dashboard.</p>
+            </div>
+          </div>
+
+          <div class="feature-card card-surface reveal-stagger" data-glow="rgba(107,43,255,0.2)">
+            <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#6B2BFF,#2E8BFF);box-shadow:0 8px 24px rgba(107,43,255,0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title">Multi-plataforma</h3>
+              <p class="feature-desc">WhatsApp, Telegram ou qualquer canal de mensagens. Funciona onde você e seu time já estão, sem precisar aprender uma nova ferramenta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INTEGRATIONS ===== -->
+    <section id="integracoes" class="section-padding reveal" aria-labelledby="integrations-title">
+      <div class="section-divider-top section-divider-blue" aria-hidden="true"></div>
+      <div class="section-container">
+        <div class="section-header">
+          <span class="badge-pill badge-blue">Integrações</span>
+          <h2 id="integrations-title" class="section-title">
+            Conecte com <span class="gradient-text">qualquer ferramenta.</span>
+          </h2>
+          <p class="section-subtitle">Nativas ou via API. Se tem dados, a ClaudIA monitora.</p>
+        </div>
+
+        <div class="integrations-grid reveal-stagger">
+          <div class="integration-card">
+            <div class="integration-icon integration-icon-purple" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <span class="integration-name">RankMyApp</span>
+          </div>
+          <div class="integration-card">
+            <div class="integration-icon integration-icon-blue" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <span class="integration-name">DataRank</span>
+          </div>
+          <div class="integration-card">
+            <div class="integration-icon integration-icon-orange" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <span class="integration-name">Google Ads</span>
+          </div>
+          <div class="integration-card">
+            <div class="integration-icon integration-icon-green" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <span class="integration-name">SQL Databases</span>
+          </div>
+          <div class="integration-card">
+            <div class="integration-icon integration-icon-purple" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <span class="integration-name">APIs REST</span>
+          </div>
+          <div class="integration-card">
+            <div class="integration-icon integration-icon-blue" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </div>
+            <span class="integration-name">Webhooks</span>
+          </div>
+          <div class="integration-card">
+            <div class="integration-icon integration-icon-green" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <span class="integration-name">Meta Ads</span>
+          </div>
+          <div class="integration-card">
+            <div class="integration-icon integration-icon-orange" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <span class="integration-name">E mais...</span>
+          </div>
+        </div>
+
+        <div class="integrations-note reveal">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          <span>Qualquer sistema com dados pode ser conectado. <a href="#planos" class="link-primary">Fale com a gente →</a></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECURITY ===== -->
+    <section id="seguranca" class="section-padding reveal" aria-labelledby="security-title">
+      <div class="section-divider-top section-divider-purple" aria-hidden="true"></div>
+      <div class="section-bg-accent-bottom" aria-hidden="true"></div>
+      <div class="section-container">
+        <div class="security-grid">
+          <!-- Shield visual -->
+          <div class="security-visual reveal-stagger">
+            <div class="shield-container">
+              <div class="shield-ring shield-ring-1" aria-hidden="true"></div>
+              <div class="shield-ring shield-ring-2" aria-hidden="true"></div>
+              <div class="shield-ring shield-ring-3" aria-hidden="true"></div>
+              <div class="shield-main">
+                <div class="shield-inner" aria-hidden="true"></div>
+                <div class="shield-icon-wrap">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="shield-icon" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span class="shield-label">Enterprise Grade</span>
+                </div>
+              </div>
+              <!-- Orbiting icons -->
+              <div class="orbit-icon orbit-1" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+              <div class="orbit-icon orbit-2" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
+              <div class="orbit-icon orbit-3" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+              <div class="orbit-icon orbit-4" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="security-content reveal-stagger">
+            <span class="badge-pill badge-purple">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Segurança
+            </span>
+            <h2 id="security-title" class="section-title text-left">
+              Segurança nível <span class="gradient-text">enterprise.</span>
+            </h2>
+            <p class="section-subtitle text-left">Seus dados de negócio são preciosos. Construímos cada camada da Matheus AI com segurança como prioridade.</p>
+
+            <div class="security-features">
+              <div class="security-feature">
+                <div class="security-feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div>
+                  <h3 class="security-feature-title">Criptografia end-to-end</h3>
+                  <p class="security-feature-desc">Todos os dados em trânsito e em repouso são criptografados com AES-256 e TLS 1.3.</p>
+                </div>
+              </div>
+              <div class="security-feature">
+                <div class="security-feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                </div>
+                <div>
+                  <h3 class="security-feature-title">Tokens seguros</h3>
+                  <p class="security-feature-desc">Autenticação via OAuth 2.0 e JWT com rotação automática de tokens de acesso.</p>
+                </div>
+              </div>
+              <div class="security-feature">
+                <div class="security-feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <div>
+                  <h3 class="security-feature-title">Isolamento por cliente</h3>
+                  <p class="security-feature-desc">Cada workspace é completamente isolado. Seus dados nunca se misturam com de outros clientes.</p>
+                </div>
+              </div>
+              <div class="security-feature">
+                <div class="security-feature-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                  <h3 class="security-feature-title">Conformidade LGPD</h3>
+                  <p class="security-feature-desc">Infraestrutura preparada para LGPD, GDPR e SOC 2. Seus dados sob controle total.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="security-trust-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="trust-icon" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <p class="trust-text"><strong>Seus dados ficam com você.</strong> A ClaudIA apenas lê e processa o que você autoriza. Nada é armazenado sem consentimento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section id="planos" class="section-padding reveal" aria-labelledby="pricing-title">
+      <div class="section-divider-top section-divider-blue" aria-hidden="true"></div>
+      <div class="section-bg-dark" aria-hidden="true"></div>
+      <div class="section-container">
+        <div class="section-header">
+          <span class="badge-pill badge-purple">Planos</span>
+          <h2 id="pricing-title" class="section-title">
+            Simples, <span class="gradient-text">sem surpresas.</span>
+          </h2>
+          <p class="section-subtitle">Planos em breve. Entre na lista de espera e seja um dos primeiros a usar o Matheus AI.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Base -->
+          <div class="pricing-card card-surface reveal-stagger">
+            <div class="pricing-header">
+              <div class="pricing-icon-wrap pricing-icon-default">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <div>
+                <p class="pricing-plan-name">Base</p>
+                <p class="pricing-tagline">Para começar a monitorar</p>
+              </div>
+            </div>
+            <div class="pricing-price text-muted">Em breve</div>
+            <button class="btn-secondary pricing-btn">Entrar na lista de espera</button>
+            <div class="pricing-divider"></div>
+            <ul class="pricing-features">
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> 1 workspace</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Até 3 integrações</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Consultas via WhatsApp</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Histórico de 7 dias</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Alertas básicos</li>
+              <li class="pricing-feature-item not-included"><span class="dash-icon">—</span> Insights de IA</li>
+              <li class="pricing-feature-item not-included"><span class="dash-icon">—</span> Usuários ilimitados</li>
+              <li class="pricing-feature-item not-included"><span class="dash-icon">—</span> Suporte prioritário</li>
+            </ul>
+          </div>
+
+          <!-- Smart Alerts -->
+          <div class="pricing-card card-surface reveal-stagger">
+            <div class="pricing-header">
+              <div class="pricing-icon-wrap pricing-icon-default">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div>
+                <p class="pricing-plan-name">Smart Alerts</p>
+                <p class="pricing-tagline">Monitoramento proativo</p>
+              </div>
+            </div>
+            <div class="pricing-price text-muted">Em breve</div>
+            <button class="btn-secondary pricing-btn">Entrar na lista de espera</button>
+            <div class="pricing-divider"></div>
+            <ul class="pricing-features">
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> 3 workspaces</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Integrações ilimitadas</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Consultas via WhatsApp</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Histórico de 30 dias</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Alertas inteligentes avançados</li>
+              <li class="pricing-feature-item not-included"><span class="dash-icon">—</span> Insights de IA</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Até 5 usuários</li>
+              <li class="pricing-feature-item not-included"><span class="dash-icon">—</span> Suporte prioritário</li>
+            </ul>
+          </div>
+
+          <!-- AI Insights (Featured) -->
+          <div class="pricing-card pricing-card-featured reveal-stagger">
+            <div class="pricing-badge-top">
+              <span class="pricing-badge-pill">✦ Mais popular</span>
+            </div>
+            <div class="pricing-featured-glow" aria-hidden="true"></div>
+            <div class="pricing-header">
+              <div class="pricing-icon-wrap pricing-icon-featured">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l1.88 5.76H20l-5.06 3.68 1.94 5.96L12 15l-4.88 3.4 1.94-5.96L4 8.76h6.12z"/></svg>
+              </div>
+              <div>
+                <p class="pricing-plan-name">AI Insights</p>
+                <p class="pricing-tagline">Inteligência completa</p>
+              </div>
+            </div>
+            <div class="pricing-price gradient-text">Em breve</div>
+            <button class="btn-primary pricing-btn">Entrar na lista de espera</button>
+            <div class="pricing-divider"></div>
+            <ul class="pricing-features">
+              <li class="pricing-feature-item included featured-item"><span class="check-icon check-primary">✓</span> Workspaces ilimitados</li>
+              <li class="pricing-feature-item included featured-item"><span class="check-icon check-primary">✓</span> Integrações ilimitadas</li>
+              <li class="pricing-feature-item included featured-item"><span class="check-icon check-primary">✓</span> Consultas via WhatsApp</li>
+              <li class="pricing-feature-item included featured-item"><span class="check-icon check-primary">✓</span> Histórico de 90 dias</li>
+              <li class="pricing-feature-item included featured-item"><span class="check-icon check-primary">✓</span> Alertas inteligentes avançados</li>
+              <li class="pricing-feature-item included featured-item"><span class="check-icon check-primary">✓</span> Insights de IA completos</li>
+              <li class="pricing-feature-item included featured-item"><span class="check-icon check-primary">✓</span> Usuários ilimitados</li>
+              <li class="pricing-feature-item included featured-item"><span class="check-icon check-primary">✓</span> Suporte prioritário</li>
+            </ul>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="pricing-card card-surface reveal-stagger">
+            <div class="pricing-header">
+              <div class="pricing-icon-wrap pricing-icon-default">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div>
+                <p class="pricing-plan-name">Enterprise</p>
+                <p class="pricing-tagline">Para grandes operações</p>
+              </div>
+            </div>
+            <div class="pricing-price text-muted">Personalizado</div>
+            <button class="btn-outline pricing-btn">Fale conosco</button>
+            <div class="pricing-divider"></div>
+            <ul class="pricing-features">
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Tudo do AI Insights</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> SLA garantido 99.9%</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Integração customizada</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Histórico ilimitado</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Treinamento dedicado</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Account manager</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> SSO / SAML</li>
+              <li class="pricing-feature-item included"><span class="check-icon">✓</span> Contrato anual flexível</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="pricing-note reveal">Todos os planos incluem período de teste gratuito. Sem necessidade de cartão de crédito para começar.</p>
+      </div>
+    </section>
+
+    <!-- ===== CTA FINAL ===== -->
+    <section id="cta-final" class="section-padding cta-section reveal" aria-labelledby="cta-title">
+      <div class="section-divider-top cta-divider" aria-hidden="true"></div>
+      <div class="cta-bg" aria-hidden="true"></div>
+      <div class="grid-bg cta-grid-bg" aria-hidden="true"></div>
+      <div class="cta-orb cta-orb-left animate-float" aria-hidden="true"></div>
+      <div class="cta-orb cta-orb-right animate-float-delayed" aria-hidden="true"></div>
+
+      <div class="section-container">
+        <div class="cta-inner fade-in-up">
+          <div class="cta-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="cta-icon" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <div class="cta-icon-badge" aria-hidden="true">✦</div>
+          </div>
+
+          <h2 id="cta-title" class="cta-title">
+            Deixe a ClaudIA <span class="gradient-text">monitorar</span> seu negócio.
+          </h2>
+          <p class="cta-subtitle">
+            Enquanto você foca no que importa, a ClaudIA cuida dos seus dados. Alertas inteligentes. Insights em tempo real. Zero dashboards.
+          </p>
+
+          <div class="cta-buttons">
+            <a href="#planos" class="btn-primary btn-xl">
+              Começar agora
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#como-funciona" class="cta-secondary-link">
+              Saber mais
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="cta-trust">
+            <div class="trust-item"><span class="trust-dot" aria-hidden="true"></span> Sem cartão de crédito</div>
+            <div class="trust-item"><span class="trust-dot" aria-hidden="true"></span> Setup em minutos</div>
+            <div class="trust-item"><span class="trust-dot" aria-hidden="true"></span> Cancele quando quiser</div>
+          </div>
+        </div>
+      </div>
+      <div class="cta-bottom-fade" aria-hidden="true"></div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo" aria-label="Rodapé do site">
+    <div class="section-divider-top section-divider-purple" aria-hidden="true"></div>
+    <div class="section-container footer-container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="#" class="nav-logo footer-logo" aria-label="Matheus AI — voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+            <div class="nav-logo-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+            </div>
+            <span class="nav-logo-text"><span class="text-white">Matheus</span><span class="gradient-text"> AI</span></span>
+          </a>
+          <p class="footer-tagline">Suas métricas de negócio. Entregues no WhatsApp. Monitoramento inteligente com ClaudIA.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="mailto:contato@matheus-ai.ai" class="social-link" aria-label="E-mail">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+          <a href="mailto:contato@matheus-ai.ai" class="footer-email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            contato@matheus-ai.ai
+          </a>
+        </div>
+
+        <!-- Product links -->
+        <nav aria-labelledby="footer-produto">
+          <p id="footer-produto" class="footer-section-title">Produto</p>
+          <ul class="footer-links" role="list">
+            <li><a href="#como-funciona" class="footer-link">Como funciona</a></li>
+            <li><a href="#funcionalidades" class="footer-link">Funcionalidades</a></li>
+            <li><a href="#integracoes" class="footer-link">Integrações</a></li>
+            <li><a href="#planos" class="footer-link">Planos</a></li>
+            <li><a href="#seguranca" class="footer-link">Segurança</a></li>
+          </ul>
+        </nav>
+
+        <!-- Company links -->
+        <nav aria-labelledby="footer-empresa">
+          <p id="footer-empresa" class="footer-section-title">Empresa</p>
+          <ul class="footer-links" role="list">
+            <li><a href="#" class="footer-link">Sobre nós</a></li>
+            <li><a href="#" class="footer-link">Blog</a></li>
+            <li><a href="#" class="footer-link">Casos de uso</a></li>
+            <li><a href="#" class="footer-link">Parceiros</a></li>
+          </ul>
+        </nav>
+
+        <!-- Legal links -->
+        <nav aria-labelledby="footer-legal">
+          <p id="footer-legal" class="footer-section-title">Legal</p>
+          <ul class="footer-links" role="list">
+            <li><a href="#" class="footer-link">Termos de uso</a></li>
+            <li><a href="#" class="footer-link">Privacidade</a></li>
+            <li><a href="#" class="footer-link">Cookies</a></li>
+            <li><a href="#" class="footer-link">LGPD</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 Matheus AI. Todos os direitos reservados.</p>
+        <div class="footer-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Todos os sistemas operacionais</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
