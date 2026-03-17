@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/claudia-demo.css" />
+  <link rel="stylesheet" href="css/alerts-demo.css" />
 </head>
 <body>
 
@@ -25,6 +27,7 @@
       <ul class="nav-links" role="list">
         <li><a href="#como-funciona" class="nav-link">Como funciona</a></li>
         <li><a href="#funcionalidades" class="nav-link">Funcionalidades</a></li>
+        <li><a href="#claudia-demo" class="nav-link">ClaudIA</a></li>
         <li><a href="#integracoes" class="nav-link">Integrações</a></li>
         <li><a href="#planos" class="nav-link">Planos</a></li>
       </ul>
@@ -42,6 +45,7 @@
     <div class="nav-mobile-menu" id="mobileMenu" aria-hidden="true">
       <a href="#como-funciona" class="nav-mobile-link">Como funciona</a>
       <a href="#funcionalidades" class="nav-mobile-link">Funcionalidades</a>
+      <a href="#claudia-demo" class="nav-mobile-link">ClaudIA</a>
       <a href="#integracoes" class="nav-mobile-link">Integrações</a>
       <a href="#planos" class="nav-mobile-link">Planos</a>
       <a href="#planos" class="btn-primary btn-mobile-cta">Falar com a ClaudIA</a>
@@ -276,6 +280,220 @@
               <p class="feature-desc">WhatsApp, Telegram ou qualquer canal de mensagens. Funciona onde você e seu time já estão, sem precisar aprender uma nova ferramenta.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CLAUDIA DEMO ===== -->
+    <section id="claudia-demo" class="reveal" aria-labelledby="claudia-demo-title">
+      <div class="section-bg-demo" aria-hidden="true"></div>
+      <div class="section-divider-top" aria-hidden="true"></div>
+      <div class="section-container">
+        <div class="claudia-demo-grid">
+
+          <!-- Left copy -->
+          <div class="claudia-demo-copy reveal-stagger">
+            <span class="badge-pill badge-accent">ClaudIA em Ação</span>
+            <h2 id="claudia-demo-title" class="section-title">
+              Pergunte qualquer coisa.<br /><span class="gradient-text">Receba dados reais.</span>
+            </h2>
+            <p class="section-subtitle">
+              A ClaudIA entende linguagem natural, acessa suas integrações e responde com métricas,
+              comparativos e gráficos direto no WhatsApp — sem abrir um único dashboard.
+            </p>
+
+            <div class="claudia-demo-features">
+              <div class="claudia-demo-feature">
+                <div class="claudia-demo-feature-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div class="claudia-demo-feature-text">
+                  <strong>Linguagem natural</strong>
+                  <span>Pergunte como você fala, sem comandos ou sintaxes especiais.</span>
+                </div>
+              </div>
+              <div class="claudia-demo-feature">
+                <div class="claudia-demo-feature-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div class="claudia-demo-feature-text">
+                  <strong>Dados em tempo real</strong>
+                  <span>Cada resposta é gerada com dados frescos das suas fontes conectadas.</span>
+                </div>
+              </div>
+              <div class="claudia-demo-feature">
+                <div class="claudia-demo-feature-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div class="claudia-demo-feature-text">
+                  <strong>Gráficos e comparativos</strong>
+                  <span>Visualize tendências e compare períodos em segundos.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: chat mockup -->
+          <div class="claudia-chat-mockup-wrap reveal-stagger" aria-label="Demonstração do chat com a ClaudIA">
+            <div class="claudia-chat-mockup-glow" aria-hidden="true"></div>
+
+            <div class="claudia-chat-window" role="region" aria-label="Janela de chat com a ClaudIA">
+
+              <!-- Title bar -->
+              <div class="claudia-chat-titlebar">
+                <div class="claudia-avatar-lg" aria-hidden="true">C</div>
+                <div class="claudia-chat-titlebar-info">
+                  <span class="claudia-chat-titlebar-name">ClaudIA</span>
+                  <div class="claudia-chat-titlebar-status">
+                    <span class="claudia-status-dot" aria-hidden="true"></span>
+                    <span class="claudia-chat-titlebar-status-text">online agora</span>
+                  </div>
+                </div>
+                <div class="claudia-chat-titlebar-dots" aria-hidden="true">
+                  <span class="claudia-chat-titlebar-dot"></span>
+                  <span class="claudia-chat-titlebar-dot"></span>
+                  <span class="claudia-chat-titlebar-dot"></span>
+                </div>
+              </div>
+
+              <!-- Chat body (animated) -->
+              <div class="claudia-chat-body" id="claudia-chat-body" role="log" aria-label="Mensagens da conversa com ClaudIA" aria-live="polite"></div>
+
+              <!-- Input bar -->
+              <div class="claudia-chat-inputbar">
+                <div class="claudia-chat-inputfield" aria-label="Campo de texto">
+                  <span class="claudia-input-text" id="claudia-input-text"></span>
+                  <span class="claudia-input-cursor" id="claudia-input-cursor" aria-hidden="true"></span>
+                </div>
+                <div class="claudia-chat-sendbtn" id="claudia-send-btn" aria-hidden="true">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ALERTS DEMO ===== -->
+    <section id="alerts-demo" class="reveal" aria-labelledby="alerts-demo-title">
+      <div class="section-bg-alerts" aria-hidden="true"></div>
+      <div class="section-divider-top" aria-hidden="true"></div>
+      <div class="section-container">
+        <div class="alerts-demo-grid">
+
+          <!-- Left: dashboard mockup -->
+          <div class="alerts-dashboard-wrap reveal-stagger" aria-label="Demonstração do painel de alertas">
+            <div class="alerts-dashboard-glow" aria-hidden="true"></div>
+
+            <div class="alerts-dashboard" role="region" aria-label="Painel de alertas inteligentes">
+
+              <!-- Dashboard header -->
+              <div class="alerts-dash-header">
+                <div class="alerts-dash-header-left">
+                  <div class="alerts-dash-icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                  </div>
+                  <div>
+                    <div class="alerts-dash-title">Central de Alertas</div>
+                    <div class="alerts-dash-subtitle">Matheus AI · Monitoramento</div>
+                  </div>
+                </div>
+                <div class="alerts-dash-header-right">
+                  <div class="alerts-live-badge">
+                    <span class="alerts-live-dot" aria-hidden="true"></span>
+                    Ao vivo
+                  </div>
+                </div>
+              </div>
+
+              <!-- Summary row -->
+              <div class="alerts-summary-row" aria-label="Resumo de alertas">
+                <div class="alerts-summary-cell">
+                  <span class="alerts-summary-num alerts-summary-num-red" id="alerts-sum-red">0</span>
+                  <span class="alerts-summary-lbl">Críticos</span>
+                </div>
+                <div class="alerts-summary-cell">
+                  <span class="alerts-summary-num alerts-summary-num-yellow" id="alerts-sum-yellow">0</span>
+                  <span class="alerts-summary-lbl">Atenção</span>
+                </div>
+                <div class="alerts-summary-cell">
+                  <span class="alerts-summary-num alerts-summary-num-blue" id="alerts-sum-blue">0</span>
+                  <span class="alerts-summary-lbl">Info</span>
+                </div>
+              </div>
+
+              <!-- Alerts list (animated) -->
+              <div class="alerts-list" id="alerts-list" role="log" aria-label="Lista de alertas em tempo real" aria-live="polite"></div>
+
+              <!-- Footer -->
+              <div class="alerts-dash-footer">
+                <span class="alerts-dash-footer-text">Atualizado em tempo real</span>
+                <span class="alerts-dash-footer-count" id="alerts-footer-count">0 alertas disparados</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right copy -->
+          <div class="alerts-demo-copy reveal-stagger">
+            <span class="badge-pill badge-alerts">Alertas Inteligentes</span>
+            <h2 id="alerts-demo-title" class="section-title">
+              Saiba antes<br /><span class="gradient-text">de virar problema.</span>
+            </h2>
+            <p class="section-subtitle">
+              A ClaudIA monitora seus indicadores 24 horas por dia e dispara alertas priorizados
+              assim que detecta anomalias — antes que impactem o seu negócio.
+            </p>
+
+            <div class="alerts-demo-stats">
+              <div class="alerts-stat-box">
+                <span class="alerts-stat-value">&lt;1s</span>
+                <span class="alerts-stat-label">Detecção</span>
+              </div>
+              <div class="alerts-stat-box">
+                <span class="alerts-stat-value">24/7</span>
+                <span class="alerts-stat-label">Monitoramento</span>
+              </div>
+              <div class="alerts-stat-box">
+                <span class="alerts-stat-value gradient-text">100%</span>
+                <span class="alerts-stat-label">Automático</span>
+              </div>
+            </div>
+
+            <div class="claudia-demo-features">
+              <div class="claudia-demo-feature">
+                <div class="claudia-demo-feature-icon feature-icon-red" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div class="claudia-demo-feature-text">
+                  <strong>Priorização automática</strong>
+                  <span>Alertas classificados como Crítico, Atenção ou Info para foco certo.</span>
+                </div>
+              </div>
+              <div class="claudia-demo-feature">
+                <div class="claudia-demo-feature-icon feature-icon-yellow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="claudia-demo-feature-text">
+                  <strong>Regras personalizadas</strong>
+                  <span>"Se CPA &gt; R$ 20 me avise" — configure thresholds em linguagem natural.</span>
+                </div>
+              </div>
+              <div class="claudia-demo-feature">
+                <div class="claudia-demo-feature-icon feature-icon-green" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div class="claudia-demo-feature-text">
+                  <strong>Metas e celebrações</strong>
+                  <span>Além de problemas, ClaudIA também avisa quando você bate uma meta.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -688,5 +906,7 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/claudia-demo.js"></script>
+  <script src="js/alerts-demo.js"></script>
 </body>
 </html>
